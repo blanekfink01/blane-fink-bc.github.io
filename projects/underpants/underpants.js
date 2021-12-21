@@ -241,7 +241,11 @@ _.filter = (arr, func) => {
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
-
+_.reject = (arr, func) => {
+    const falsey = [];
+    _.each(arr, (val, i, arr) => func(val, i, arr) ? true : falsey.push(val));
+    return falsey;
+};
 
 /** _.partition
 * Arguments:
