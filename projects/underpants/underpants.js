@@ -327,7 +327,16 @@ _.pluck = (arrOfObj, prop) => {
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
-
+_.every = (coll, func) => {
+    console.log('coll', coll, 'func', func)
+    let every = true;
+    if (typeof func === 'function') {
+        _.each(coll, (el, i, coll) => func(el) ? true : every = false);
+    } else {
+        _.each(coll, (el, i, coll) => el ? true : every = false);
+    }
+    return every;
+}
 
 /** _.some
 * Arguments:
