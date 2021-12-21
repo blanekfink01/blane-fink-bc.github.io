@@ -331,7 +331,7 @@ _.every = (coll, func) => {
     console.log('coll', coll, 'func', func)
     let every = true;
     if (typeof func === 'function') {
-        _.each(coll, (el, i, coll) => func(el) ? true : every = false);
+        _.each(coll, (el, i, coll) => func(el, i, coll) ? true : every = false);
     } else {
         _.each(coll, (el, i, coll) => el ? true : every = false);
     }
