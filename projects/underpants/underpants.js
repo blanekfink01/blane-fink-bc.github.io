@@ -134,7 +134,14 @@ _.last = (arr, num) => {
 *   _.indexOf(["a","b","c"], "c") -> 2
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
-
+_.indexOf = (arr, val) => {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === val) {
+            return i;
+        }
+    }
+    return -1;
+}
 
 /** _.contains
 * Arguments:
@@ -150,7 +157,9 @@ _.last = (arr, num) => {
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
-
+_.contains = (arr, val) => {
+    return _.indexOf(arr, val) !== -1 ? true: false;
+};
 
 /** _.each
 * Arguments:
@@ -167,7 +176,17 @@ _.last = (arr, num) => {
 *   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
 *      -> should log "a" "b" "c" to the console
 */
-
+_.each = (coll, func) => {
+    if (Array.isArray(coll)) {
+        for (let i = 0; i < coll.length; i++) {
+            func(coll[i], i, coll);
+        }
+    } else {
+        for (let key in coll) {
+            func(coll[key], key, coll);
+        }
+    }
+};
 
 /** _.unique
 * Arguments:
