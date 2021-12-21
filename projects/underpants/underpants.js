@@ -103,7 +103,21 @@ _.first = (arr, num) => {
 *   _.last(["a", "b", "c"], 1) -> "c"
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
-
+_.last = (arr, num) => {
+    if (!Array.isArray(arr)) {
+        return [];
+    }
+    if (typeof num !== 'number') {
+        return arr[arr.length - 1];
+    } else if (num < 0) {
+        return [];
+    } else if (num > arr.length) {
+        return arr;
+    } else {
+        // functionality here
+        return arr.slice(0 - num);
+    }
+};
 
 /** _.indexOf
 * Arguments:
