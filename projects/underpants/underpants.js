@@ -197,7 +197,16 @@ _.each = (coll, func) => {
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
-
+_.unique = (arr) => {
+    const uniq = [];
+    for (let i = 0; i < arr.length; i++) {
+        // if not in uniq: push it
+        if (_.indexOf(uniq, arr[i]) === -1) {
+            uniq.push(arr[i]);
+        }
+    }
+    return uniq;
+}
 
 /** _.filter
 * Arguments:
