@@ -328,7 +328,6 @@ _.pluck = (arrOfObj, prop) => {
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 _.every = (coll, func) => {
-    console.log('coll', coll, 'func', func)
     let every = true;
     if (typeof func === 'function') {
         _.each(coll, (el, i, coll) => func(el, i, coll) ? true : every = false);
@@ -358,7 +357,15 @@ _.every = (coll, func) => {
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
-
+_.some = (coll, func) => {
+    let some = false;
+    if (typeof func === 'function') {
+        _.each(coll, (el, i, coll) => func(el, i, coll) ? some = true : false);
+    } else {
+        _.each(coll, (el, i, coll) => el ? some = true : false);
+    }
+    return some;
+};
 
 /** _.reduce
 * Arguments:
