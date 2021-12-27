@@ -385,7 +385,18 @@ _.some = (coll, func) => {
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
-
+_.reduce = (arr, func, seed, i = 0) => {
+    if (seed === undefined) {
+        seed = arr[0];
+        i++;
+    }
+    let res = func(seed, arr[i], i);
+    i++;
+    if (arr.length === i) {
+        return res;
+    }
+    return _.reduce(arr, func, res, i);
+}
 
 /** _.extend
 * Arguments:
@@ -401,7 +412,17 @@ _.some = (coll, func) => {
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
-
+_.extend = (...objects) => {
+    console.log(objects);
+    // i can copy props from lenght - 1 tolength -2 if objects.length is more than 1 and then recursively call with one less object in objects maybe
+    if (objects.length >= 2) {
+        // delete old props
+        // add new props
+        // return a call to extend with objects with last el removed
+    } else if (objects.length === 1) {
+        return objects[0];
+    }
+};
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
