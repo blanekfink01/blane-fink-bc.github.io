@@ -413,12 +413,17 @@ _.reduce = (arr, func, seed, i = 0) => {
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
 _.extend = (...objects) => {
-    console.log(objects);
+    console.log(objects.length, objects);
     // i can copy props from lenght - 1 tolength -2 if objects.length is more than 1 and then recursively call with one less object in objects maybe
-    if (objects.length >= 2) {
-        // delete old props
-        // add new props
+    if (objects.length > 1) {
+        // delete old props using for in loop of last el of arr
+        // add new props after deletin g appropriately
+        for (let key in objects[objects.length - 1]) {
+            delete objects[objects.length - 2][key];
+            objects[objects.length - 2][key] = objects[objects.length - 1][key];
+        }
         // return a call to extend with objects with last el removed
+        return _.extend(...objects.slice(0, objects.length-1));
     } else if (objects.length === 1) {
         return objects[0];
     }
