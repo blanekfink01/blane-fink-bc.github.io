@@ -39,7 +39,14 @@ function search(animals, query) {
 //    - If an animal with that name exists within the `animals` Array, replace it's entire Object with the replacement Object.
 //    - Otherwise do nothing.
 //  2. Preview the `index.html` page to test it on the website.
-
+function replace(animals, name, replacement) {
+    animals.forEach((animal, i, arr) => {
+        if (animal.name === name) {
+            arr[i] = replacement;
+        }
+    });
+    return;
+}
 
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Remove ///////////////////////////////////////////////////
