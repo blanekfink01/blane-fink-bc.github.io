@@ -56,7 +56,15 @@ function replace(animals, name, replacement) {
 //    - Takes 2 parameters, an Array of animals, and a name of an animal on which to perform a search.
 //    - If an animal with that name exists within the `animals` Array, remove it.
 //  2. Test that it works on the website.
-
+function remove(animals, name) {
+    animals.forEach((animal, i, arr) => {
+        if (animal.name === name) {
+            // remove animal from arr
+            arr.splice(i, 1);
+        }
+    });
+    return;
+}
 
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Add ///////////////////////////////////////////////////
@@ -69,7 +77,20 @@ function replace(animals, name, replacement) {
 //    - Has a **unique** name, meaning no other animals have that name.
 //    - Adds this new Object to the `animals` Array, **only** if all the other conditions pass.
 //    - Make sure it works.
-
+function add(animals, animal) {
+    if (animal.name.length > 0 && animal.species.length > 0) {
+        // if animal.name is not in animals then push animal to animals or do nothing
+        var isUniq = true;
+        animals.forEach(currAnimal => {
+            if (currAnimal.name === animal.name) {
+                isUniq = false;
+            }
+        });
+        if (isUniq) {
+            animals.push(animal);
+        }
+    }
+}
 
 /**
  * You did it! You're all done with Matchy!
