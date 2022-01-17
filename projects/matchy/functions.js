@@ -21,7 +21,7 @@
 //    - Returns `null` if no animal with that name exists
 //  3. Use the search bar at the top of the page to make sure your function works.
 function search(animals, query) {
-    let animal;
+    let animal = null;
     animals.forEach(element => {
         if (element.name.toLowerCase() === query.toLowerCase()) {
             animal = element
