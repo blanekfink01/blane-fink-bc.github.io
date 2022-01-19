@@ -22,7 +22,16 @@ function flatten(arr) {
 // loop ////////////////////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function loop(num, func, func2) {
+function loop(num, func, func2, codeBlock) {
+  // console.log('num', num, 'func', func, 'func2', func2, 'code', codeBlock)
+  // num 3 
+  // func n => n > 0 // stop condition
+  // func2 n => n - 1 // iteration
+  // codeBlock // value => console.log('value is ' + value) // function that does soething to code
+  for (let i = num; func(i); i = func2(i)) {
+    codeBlock(i);
+  }
+
   
 }
 
