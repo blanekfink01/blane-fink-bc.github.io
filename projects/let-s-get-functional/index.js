@@ -81,11 +81,45 @@ var friendFirstLetterCount = (customers, name, lett) => {
     return firstLetterCount(person.friends, lett);
 };
 
-var friendsCount;
+var friendsCount = (customers, name) => {
+    // if a customer has a "name" in their friends list, push their name to an array of friends
+    const friends = []
+    _.each(customers, customer => {
+        _.each(customer.friends, (friend) => friend.name === name ? friends.push(customer.name) : false);
+    });
+    return friends;
+};
 
-var topThreeTags;
+var topThreeTags = (customers) => {
+    const tags = {};
+    _.each(customers, (customer) => {
+        _.each(customer.tags, tag => {
+            if (tags[tag] === undefined) { // if the tag in tags doesnt exist, add it, else, add to it
+                return tags[tag] = 0;
+            } else {
+                return tags[tag] = tags[tag] + 1;
+            }
+        })
+    });
+    // convert tags to an array like [[tag1, 34], [tag2, 14]] .map.sort.slice
+    return _.map(Object.keys(tags), (tag) => {
+        return [tag, tags[tag]];
+    }).sort((x, y) => y[1] - x[1]).map(arr => arr[0]).slice(0, 3);
+};
 
-var genderCount;
+var genderCount = (data) => {
+    const count = {'female': 0, 'male': 0, 'non-binary': 0 };
+    _.each(data, (customer) => {
+        if (customer.gender === 'male') {
+            count.male += 1;
+        } else if (customer.gender === 'female') {
+            count.female += 1;
+        } else {
+            count['non-binary']++;
+        }
+    });
+    return count;
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
