@@ -10,7 +10,7 @@ var _ = require('underbar');
  *    using the string 'lodown-<my-username>', or whatever
  *    name with which you published your npm lodown project.
  *
- * 2. Solve all problems as outlined in the README.
+ * 2. Solve all problems as outlined in the README.gi
  *
  * 3. We started the first one for you as an example! Make the rest in that style.
  *
@@ -25,7 +25,7 @@ var maleCount;
 
 var femaleCount;
 
-var oldestestCustomer;
+var oldestCustomer;
 
 var youngestCustomer;
 
