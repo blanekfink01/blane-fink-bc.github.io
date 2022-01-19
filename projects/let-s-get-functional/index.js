@@ -24,15 +24,44 @@ var _ = require('underbar');
 
 var maleCount = (customers) => {
     return _.filter(customers, cust => cust.gender === 'male').length;
-}
+};
 
-var femaleCount;
+var femaleCount = (customers) => {
+    return _.filter(customers, cust => cust.gender === 'female').length;
+};
+var oldestCustomer = (customers) => {
+    let oldest = customers[0];
+    _.each(customers, customer => {
+        if (customer.age > oldest.age) {
+            oldest = customer;
+        }
+    });
+    return oldest.name;
+};
 
-var oldestCustomer;
+var youngestCustomer = (customers) => {
+    let youngest = customers[0];
+    _.each(customers, customer => {
+        if (customer.age < youngest.age) {
+            youngest = customer;
+        }
+    });
+    return youngest.name;
+};
 
-var youngestCustomer;
-
-var averageBalance;
+var averageBalance = (customers) => {
+    const allBals = [];
+    _.each(customers, (customer) => {
+        // parse a balance number then push to allBals as a number
+        // ex: "$1,253.63" to 1253.63
+        // string.match(regex)
+        let nums = customer.balance.match(/[0-9-.]/g).join(''); // string with only number digits
+        nums = parseFloat(nums); // numberfies it
+        allBals.push(nums);
+    });
+    const total = _.reduce(allBals, (memo, num) => memo + num, 0); // = allBals.reduce
+    return total / allBals.length;
+};
 
 var firstLetterCount;
 
