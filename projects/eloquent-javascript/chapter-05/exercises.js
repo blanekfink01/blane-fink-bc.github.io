@@ -3,15 +3,20 @@
 // /////////////////////////////////////////////////////////////////////////////
 
 function flatten(arr) {
-  arr.forEach((element, i, arrr) => {
-    if (Array.isArray(element)) {
-      element.forEach(val => arr.push(val));
-      arrr.splice(i, 1);
+  // i can use reduce to put all the values into a new array and if the current element is an array i can use array.concat the element
+  // to add it to the array properly perhaps
+  return arr.reduce((memo, val) => {
+    if (Array.isArray(val)) {
+      // if it's an array concat
+      return memo.concat(val);
+    } else {
+      memo.push(val);
+      return memo;
     }
-  });
-  // console.log(arr)
-  return arr;
+  }, []);
+  
 }
+
 
 // /////////////////////////////////////////////////////////////////////////////
 // loop ////////////////////////////////////////////////////////////////////////
