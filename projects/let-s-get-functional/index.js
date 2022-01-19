@@ -63,9 +63,23 @@ var averageBalance = (customers) => {
     return total / allBals.length;
 };
 
-var firstLetterCount;
+var firstLetterCount = (customers, lett) => {
+    return _.reduce(customers, (prev, customer) => {
+        if (customer.name[0].toLowerCase() === lett.toLowerCase()) {
+            return prev + 1
+        } else {
+            return prev;
+        }
+    }, 0)
+};
 
-var friendFirstLetterCount;
+var friendFirstLetterCount = (customers, name, lett) => {
+    // customers is data, name is name of the person who's friends we're testing
+    // let's find the object with the matching name
+    let person = _.filter(customers, customer => customer.name === name)[0]; // should find our obj
+    // then let's pass the array of friends to firstLetterCount
+    return firstLetterCount(person.friends, lett);
+};
 
 var friendsCount;
 
