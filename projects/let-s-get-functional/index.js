@@ -16,7 +16,8 @@ var _ = require('underbar');
  *
  * 4. To test your work, run the following command in your terminal:
  *
- *    npm start --prefix ./bootcamp1pm.github.io/projects/let-s-get-functional
+ *    npm start --prefix ./blane-fink-bc.github.io/projects/let-s-get-functional
+ *    in the workspace directory will test the code
  *
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
