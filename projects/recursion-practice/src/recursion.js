@@ -18,6 +18,16 @@ var factorial = function(n) {
 // 2. Compute the sum of an array of integers.
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
 var sum = function(array) {
+  // base 
+  if (array.length === 0) {
+    return [];
+  }
+  if (array.length === 1) {
+    return array[0];
+  }
+  // recursion
+  array[0] += array.pop(); // impure
+  return sum(array);
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
@@ -27,12 +37,15 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+  // cant use modulo
+  // can check for even divisibility by 2 if possible
+  // i cant recursively divide by 2 and if it reaches 1 it was even but if it goes below 1 before that thern it is odd
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
-var sumBelow = function(n) {
+var sumBelow = function(n) { // factorio of the whole number under the given number
 };
 
 // 6. Get the integers in range (x, y).
