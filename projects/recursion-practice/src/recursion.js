@@ -17,10 +17,11 @@ var factorial = function(n) {
 
 // 2. Compute the sum of an array of integers.
 // Example:  sum([1, 2, 3, 4, 5, 6]);  // 21
-var sum = function(array) {
+var sum = function(arr) {
+  const array = arr.slice();
   // base 
   if (array.length === 0) {
-    return [];
+    return 0;
   }
   if (array.length === 1) {
     return array[0];
@@ -32,7 +33,21 @@ var sum = function(array) {
 
 // 3. Sum all numbers in an array containing nested arrays.
 // Example: arraySum([1,[2,3],[[4]],5]); // 15
-var arraySum = function(array) {
+var arraySum = function(array) { // not doing this rn it's optional lol
+  // // i can use reduce on an array and maybe if it is an array call arraySum on it p.s. maybe reduce isn't good for recursion
+  // if (array.length === 1) {
+  //   return array[0];
+  // }
+  // // recursively go through array and each nested array
+  // const arr = array.slice();
+  // if (Array.isArray(arr[0])) {
+  //   return arr[0].concat(arr)
+  // }
+  // if (Array.isArray(arr[1])) {
+  //   return arr[0] + arraySum(arr.slice(1));
+  // }
+  // return arr[0] + arraySum(arr.slice(1));
+
 };
 
 // 4. Check if a number is even.
@@ -40,6 +55,16 @@ var isEven = function(n) {
   // cant use modulo
   // can check for even divisibility by 2 if possible
   // i cant recursively divide by 2 and if it reaches 1 it was even but if it goes below 1 before that thern it is odd
+  n = Math.abs(n);
+  if (n === 2 || n === 0) {
+    console.log('true n', n)
+    return true;
+  } else if (n < 2) {
+    console.log('false n', n);
+    return false;
+  }
+  return isEven(n - 2);
+  
 };
 
 // 5. Sum all integers below a given integer.
