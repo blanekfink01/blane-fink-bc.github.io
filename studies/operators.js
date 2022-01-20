@@ -29,6 +29,8 @@
  * ++ Incrementally adds one to a number 
  * -- Incrementally subracts one from a number
  */
+console.log(8 % 0); // => 0
+console.log(8 / 8); // => 1
 
 // 3. Comparison operators //
 /*
@@ -50,6 +52,9 @@
  * || logical or checks if either expression is true and resolves to true if just one is true
  * ! bang operator is a truthy flipper. if you put it in front of a value that is truthy it makes it falsey and vice versa
  */
+console.log(true && false) // => false
+console.log(!!true); // => true // flips to false and back
+
 // 5. Unary operators //
 /**
  * unary operators are operators that operate only on one piece of data as opposed to two
