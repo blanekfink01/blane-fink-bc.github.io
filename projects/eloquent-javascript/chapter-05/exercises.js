@@ -42,7 +42,7 @@ function loop(num, func, func2, codeBlock) {
 function every(arr, func) {
   let everyVal = true;
   for (let i = 0; i < arr.length; i++) {
-    if (!func(arr)) {
+    if (!func(arr[i])) {
       everyVal = false;
     }
   }
@@ -53,8 +53,19 @@ function every(arr, func) {
 // dominantDirection ///////////////////////////////////////////////////////////
 // /////////////////////////////////////////////////////////////////////////////
 
-function dominantDirection() {
-
+function dominantDirection(str) {
+  let count = {'ltr': 0, 'rtl': 0}
+  str.split('').forEach(char => {
+    if (characterScript(char.codePointAt(0)) === null) {
+      return;
+    }
+    if (characterScript(char.codePointAt(0)).direction === 'ltr') {
+      count['ltr']++;
+    } else if (characterScript(char.codePointAt(0)).direction === 'rtl') {
+      count['rtl']++;
+    }
+  });
+  return count.ltr > count.rtl ? 'ltr' : 'rtl';
 }
 
 // /////////////////////////////////////////////////////////////////////////////
