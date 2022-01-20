@@ -55,3 +55,9 @@ const mom = 'Bobby';
   * hoists the declaration and definition of the following function.
   * Variables defined with let and const are hoisted, but they cant be used until its value is declared
   */
+ console.log(example);
+ var example = 'hey';
+ // this will be interpreted as this
+ var example;
+ console.log(example);
+ example = 'hey';
