@@ -28,7 +28,8 @@ print('i like', 'some dogs') // here are function arguments. they will respectiv
     console.log(string1 + string2); 
     return string1 + string2;
 }
-
+print('h', 'i');
+console.log(string1, string2); // => referenceerror // variables bound to functions cannot be accessed by an outer scope including outer functions trying to access inner ones
 // 4. Inputs and outputs //
 // the inputs of a function are the parameters and when it is called with data the data passed in is called arguments,
 // and the function will always return only what is meant to be returned or undefined if not specified
